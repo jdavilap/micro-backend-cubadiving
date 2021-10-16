@@ -19,7 +19,6 @@ public class ReservaController {
     public Response listarReservas() {
         return Response.ok(Reserva.listAll()).build();
     }
-
     @GET
     @Path("/{id}")
     public Response listarReservaPorId(@PathParam("id") Long id) {
@@ -39,7 +38,6 @@ public class ReservaController {
         reserva.setCodReserva("CU" + random_int);
         Cliente cliente = Cliente.findById(idcliente);
         reserva.setCliente(cliente);
-
         Paseo paseo = Paseo.findById(idpaseo);
         reserva.setPaseo(paseo);
         reserva.persist();

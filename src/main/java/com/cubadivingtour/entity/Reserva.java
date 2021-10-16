@@ -7,28 +7,45 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 public class Reserva extends PanacheEntity {
 
+    @Column(name = "nombre_cliente")
+    public String nombreCliente;
+
+    public String pasaporte;
+
+    public String correo;
+
+    public String telefono;
+
     @Column(name = "cod_reserva")
     public String codReserva;
+
     @CreationTimestamp
     @Column(name = "fecha_inicio")
     public LocalDate fechaInicio;
+
     @Column(name = "fecha_fin")
     public LocalDate fechaFin;
+
     public float precio;
+
     @Column(name = "metodoPago")
     public String metodoPago;
+
     @CreationTimestamp
     public LocalDate createdAt;
+
     @UpdateTimestamp
     public LocalDate updatedAt;
+
     public String estado;
+
     @Column(name = "cantidad_personas")
     public int cantidadPersonas;
+
     @Column(name = "cantidad_equipos")
     public int cantidadEquipos;
 
@@ -41,6 +58,9 @@ public class Reserva extends PanacheEntity {
     @JsonIgnore
     @JoinColumn(name = "paseo_id")
     public Paseo paseo;
+
+
+
 
     public Paseo getPaseo() {
         return paseo;
@@ -136,5 +156,37 @@ public class Reserva extends PanacheEntity {
 
     public void setCodReserva(String codReserva) {
         this.codReserva = codReserva;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public String getPasaporte() {
+        return pasaporte;
+    }
+
+    public void setPasaporte(String pasaporte) {
+        this.pasaporte = pasaporte;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }
